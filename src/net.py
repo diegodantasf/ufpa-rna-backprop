@@ -41,19 +41,12 @@ class RNA(object):
         test_loss = []
         for epoch in range(num_epochs):
             self.compute_gradients(train_X, train_y)
-            for i in range(self.n1):
-                self.w1[i] = self.w1[i] - lr * self.gw1[i]
 
-            # print('-------------------------------------')
-            # print(self.w1)
-            # print(np.subtract(self.w1, np.multiply(lr, self.gw1)))
-            # print('-------------------------------------')
+            self.w1 = np.subtract(self.w1, np.multiply(lr, self.gw1))
 
+            self.w2 = np.subtract(self.w2, np.multiply(lr, self.gw2))
 
-            for i in range(self.n1):
-                self.w2[i] = self.w2[i] - lr * self.gw2[i]
-            for i in range(self.n1):
-                self.b1[i] = self.b1[i] - lr * self.gb1[i]
+            self.b1 = np.subtract(self.b1, np.multiply(lr, self.gb1))
             
             cur_train_loss = np.mean(self.loss_fuction(train_X, train_y))
             train_loss.append(cur_train_loss)

@@ -3,7 +3,7 @@ import numpy as np
 class Dataset(object):
     def __init__(self, func, lo, hi, n=1000, with_noise=True, seed=1337):
         self.rng = np.random.default_rng(1)
-        self.X = self.rng.random(n) * (hi - lo) + lo 
+        self.X = np.random.uniform(lo, hi, n)
         self.y = func(self.X)
         if with_noise:
             self.y += self.rng.normal(0, 0.01, n)
