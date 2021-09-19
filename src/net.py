@@ -15,8 +15,7 @@ class RNA(object):
         self.gb1 = np.zeros(self.n1)
 
         self.errors = np.zeros(n)
-        for i in range(n):
-            self.errors[i] = self.forward(X[i]) - y[i]
+        self.errors = np.subtract(self.forward(X), y)
 
         for i in range(self.n1):
             ans = 0
@@ -36,40 +35,55 @@ class RNA(object):
                 ans += self.errors[j] * self.w2[i] * (1 - self.g(self.w1[i] * X[j] + self.b1[i])**2)
             self.gb1[i] = 2 / n * ans
 
-    def train(self, X, y, num_epochs = 10, lr=0.001):
-        n = X.shape[0]
-        loss = []
+    def train(self, train_X, train_y, test_X, test_y, num_epochs = 10, lr=0.09):
+        n = train_X.shape[0]
+        train_loss = []
+        test_loss = []
         for epoch in range(num_epochs):
-            self.compute_gradients(X, y)
+            self.compute_gradients(train_X, train_y)
             for i in range(self.n1):
                 self.w1[i] = self.w1[i] - lr * self.gw1[i]
+
+            # print('-------------------------------------')
+            # print(self.w1)
+            # print(np.subtract(self.w1, np.multiply(lr, self.gw1)))
+            # print('-------------------------------------')
+
+
             for i in range(self.n1):
                 self.w2[i] = self.w2[i] - lr * self.gw2[i]
             for i in range(self.n1):
                 self.b1[i] = self.b1[i] - lr * self.gb1[i]
             
-            cur_loss = self.loss(X, y)
-            loss.append(cur_loss)
+            cur_train_loss = np.mean(self.loss_fuction(train_X, train_y))
+            train_loss.append(cur_train_loss)
 
-            print(f'epoch {epoch + 1} loss {cur_loss}')
+            cur_test_loss = np.mean(self.loss_fuction(test_X, test_y))
+            test_loss.append(cur_test_loss)
 
-        return loss
+            print(f'epoch {epoch + 1} train_loss {cur_train_loss}')
+            print(f'epoch {epoch + 1} test_loss {cur_test_loss}')
+
+        return [train_loss, test_loss]
     
-    def loss(self, X, y):
-        ans = 0
-        for i in range(len(X)):
-            ans += (self.forward(X[i]) - y[i])**2
-        ans /= len(X)
-        return ans
+    def test(self, X, y):
+        return self.loss_fuction(X, y)
+    
+    def predict(self, X):
+        return self.forward(X)
+    
+    def loss_fuction(self, X, y):
+        return np.subtract(self.forward(X), y)**2
 
-    def forward(self, x):
-        ans = 0
-        for i in range(self.n1):
-            ans += self.w2[i] * self.g(self.w1[i] * x + self.b1[i])
-        return ans
+    def forward(self, X):
+        results = np.zeros(np.shape(X))
+        for i in range(len(X)):
+            results[i] = np.dot(self.w2, self.g(np.add(np.multiply(self.w1, X[i]), self.b1)))
+        
+        return results
 
     @staticmethod
     def g(x):
-        return (np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x))
+        return np.tanh(x)
 
 
