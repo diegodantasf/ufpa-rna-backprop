@@ -14,7 +14,7 @@ Neste trabalho aprensentamos uma implementação em Python de uma versão simpli
 
 [TODO: add fórmulas simples do gradiente descendente e da MSE]
 
-O código fonte do algoritmo pode ser encontrado em [TODO: add path]
+O código fonte do algoritmo pode ser encontrado em [link](https://github.com/diegodantasf/ufpa-rna-backprop)
 
 Os dados que usamos para treino e validação foram gerados a partir da função f(x) = x^2 + W, onde W é um ruído gaussiano.
 Usamos [TODO: add numero de amostras] amostas para o treino e [TODO: add numero de amostras] para validação.
