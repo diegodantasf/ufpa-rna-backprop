@@ -2,9 +2,9 @@
 Prof. Dra. Adriana Rosa Garcez Castro
 
 Equipe:
-- [Diego Dandas](https://github.com/diegodantasf)
+- [Diego Dantas](https://github.com/diegodantasf)
 - [Gustavo Fontenele](https://github.com/gustavofont)
-- [Jeremias Abreu](https://github.com/j-abreu)
+- [Jeremias Lima](https://github.com/j-abreu)
 
 #### Implementação simples do Algoritmo BackPropagation com Gradiente Descendente
 
