@@ -1,31 +1,33 @@
 from src.net import RNA
 from src.dataset import Dataset
+from src.plot import *
 
 import matplotlib.pyplot as plt
 import numpy as np
 
+TRAIN_DATASET_SIZE = 100
+TEST_DATASET_SIZE = 100
+VALIDATION_DATASET_SIZE = 100
+N_EPOCHS = 1000
+N_NEURONS = 32
+
+FUNCTION = np.sin
+LOW = -10 * np.pi
+HIGH = 10 * np.pi
+
 def main():
-    data = Dataset(np.sin, lo=0, hi=2 * np.pi, n=1000, with_noise=False)
-    net = RNA(5)
+    train_data = Dataset(FUNCTION, lo=LOW, hi=HIGH, n=TRAIN_DATASET_SIZE, with_noise=False, seed=1337)
+    test_data = Dataset(FUNCTION, lo=LOW, hi=HIGH, n=TEST_DATASET_SIZE, with_noise=False, seed=42)
+    validation_data = Dataset(FUNCTION, lo=LOW, hi=HIGH, n=VALIDATION_DATASET_SIZE, with_noise=False, seed=333)
 
-    losses = net.train(data.X, data.y, num_epochs=500, lr=0.01)
+    net = RNA(N_NEURONS)
 
-    plt.plot(list(range(len(losses))), losses)
-    plt.title('Loss over epochs')
-    plt.show()
+    [train_loss, test_loss] = net.train(train_data.X, train_data.y, test_data.X, test_data.y, num_epochs=N_EPOCHS, lr=0.0001)
+    y_pred = net.predict(validation_data.X)
 
-    o = np.argsort(data.X)
-    data.X = data.X[o]
-    data.y = data.y[o]
+    plot_losses(train_loss, test_loss, filename='losses_test-loss-{}.png'.format(test_loss[-1]))
 
-    y_pred = np.zeros(1000)
-    for i in range(len(y_pred)):
-        y_pred[i] = net.forward(data.X[i])
-
-    plt.plot(data.X, data.y, label='Real')
-    plt.plot(data.X, y_pred, label='Prediction')
-    plt.legend()
-    plt.show()
+    plot_predictions(validation_data, y_pred, filename='predictions_test-loss-{}.png'.format(test_loss[-1]))
     
 if __name__ == '__main__':
     main()
