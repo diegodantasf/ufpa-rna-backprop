@@ -7,9 +7,6 @@ class RNA(object):
         self.w1 = rng.random(n1)
         self.w2 = rng.random(n1)
         self.b1 = rng.random(n1)
-        self.lw1 = []
-        self.lw2 = []
-        self.lb1 = []
 
     def compute_gradients(self, X, y):
         n = X.shape[0]
@@ -59,25 +56,14 @@ class RNA(object):
 
             print(f'epoch {epoch + 1} train_loss {cur_train_loss}')
             print(f'epoch {epoch + 1} test_loss {cur_test_loss}')
-            self.lw1.append(self.w1)
-            self.lw2.append(self.w2)
-            self.lb1.append(self.b1)
 
         return [train_loss, test_loss]
     
     def show(self):
-        epo = 1
-        print('Pesos da primeira camada(w1) :')
-        for i in self.lw1:
-            print('layer 1 epoch ', epo,' :')
-            print(i)
-            epo += 1
-        print('Pesos da segunda camada(w1) :')
-        epo = 1
-        for i in self.lw2:
-            print('layer 2 epoch ', epo,' :')
-            print(i)
-            epo += 1
+        print('Pesos 1 camada : ')
+        print(self.w1)
+        print('Pesos 2 camada : ')
+        print(self.w2)
 
     def test(self, X, y):
         return self.loss_fuction(X, y)
