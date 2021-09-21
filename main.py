@@ -27,7 +27,7 @@ def main():
 
     y_pred = net.predict(np.transpose(validation_data.X))
     y_pred = np.squeeze(y_pred)
-
+    
     validation_data.X = np.squeeze(validation_data.X)
 
     plot_losses(train_loss, test_loss, filename='losses_test-loss-{}.png'.format(test_loss[-1]))
