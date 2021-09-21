@@ -24,6 +24,9 @@ class Network(object):
   def evaluate(self, X, y):
     results = self.forward(X)
     return MSE(y, results)
+  
+  def predict(self, X):
+    return self.forward(X)
 
   def shuffle_data(self, X, y):
     X, y = np.array(X), np.array(y)
@@ -73,7 +76,7 @@ class Network(object):
 
       print('')
     
-    return (train_losses, test_losses)
+    return (np.array(train_losses), np.array(test_losses))
 
   def update_mini_batch(self, mini_batch_X, mini_batch_y, lr):
 

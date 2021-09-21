@@ -6,14 +6,14 @@ from src.plot import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-TRAIN_DATASET_SIZE = 10
-TEST_DATASET_SIZE = 10
-VALIDATION_DATASET_SIZE = 10
-N_EPOCHS = 10
-N_NEURONS = 3
+TRAIN_DATASET_SIZE = 1000
+TEST_DATASET_SIZE = 1000
+VALIDATION_DATASET_SIZE = 1000
+N_EPOCHS = 1000
+N_NEURONS = 64
 
 FUNCTION = np.sin
-LOW = 0 * np.pi
+LOW = -10 * np.pi
 HIGH = 20 * np.pi
 
 def main():
@@ -23,12 +23,16 @@ def main():
 
     net = Network([1, N_NEURONS, 1])
     
-    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.01, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
+    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.1, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
+
+    y_pred = net.predict(np.transpose(validation_data.X))
+    y_pred = np.squeeze(y_pred)
+
+    validation_data.X = np.squeeze(validation_data.X)
 
     plot_losses(train_loss, test_loss, filename='losses_test-loss-{}.png'.format(test_loss[-1]))
-    return
-
     plot_predictions(validation_data, y_pred, filename='predictions_test-loss-{}.png'.format(test_loss[-1]))
+    
     
 if __name__ == '__main__':
     main()
