@@ -1,5 +1,4 @@
-from src.net import RNA
-from src.network import Network
+from src.network_v2 import Network
 from src.dataset import Dataset
 from src.plot import *
 
@@ -23,7 +22,7 @@ def main():
 
     net = Network([1, N_NEURONS, 1])
     
-    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.00005, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
+    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, lr=0.00005, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
 
     y_pred = net.predict(np.transpose(validation_data.X))
     y_pred = np.squeeze(y_pred)
