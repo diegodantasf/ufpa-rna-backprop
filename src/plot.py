@@ -10,7 +10,7 @@ def plot_losses(train_loss, test_loss, filename='losses.png'):
   plt.ylabel('erro')
   plt.title('Erro ao longo das épocas')
   plt.savefig('./plots/' + filename)
-  plt.ylim([0, 1])
+  #plt.ylim([0, 1])
   plt.show()
 
 
@@ -22,8 +22,8 @@ def plot_predictions(data, prediction, filename='predictions.png'):
   prediction = prediction[o]
 
 
-  plt.plot(data.X, data.y, label='Real')
-  plt.plot(data.X, prediction, label='Predição')
+  plt.plot(np.squeeze(data.X), np.squeeze(data.y), label='Real')
+  plt.plot(np.squeeze(data.X), prediction, label='Predição')
   plt.legend()
   plt.xlabel('x * pi')
   plt.ylabel('sin(x * pi)')
