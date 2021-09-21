@@ -8,8 +8,8 @@ import numpy as np
 TRAIN_DATASET_SIZE = 1000
 TEST_DATASET_SIZE = 1000
 VALIDATION_DATASET_SIZE = 1000
-N_EPOCHS = 10000
-N_NEURONS = 16
+N_EPOCHS = 100
+N_NEURONS = 1
 
 FUNCTION = np.sin
 LOW = -5 * np.pi
@@ -29,8 +29,17 @@ def main():
     
     validation_data.X = np.squeeze(validation_data.X)
 
+    print ('Network weights')
+    print (net.weights.shape)
+    print (net.weights)
+    print ('Network biases')
+    print (net.biases.shape)
+    print (net.biases)
+
     plot_losses(train_loss, test_loss, filename='losses_test-loss-{}.png'.format(test_loss[-1]))
     plot_predictions(validation_data, y_pred, filename='predictions_test-loss-{}.png'.format(test_loss[-1]))
+
+
     
     
 if __name__ == '__main__':
