@@ -12,9 +12,6 @@ VALIDATION_DATASET_SIZE = 1000
 N_EPOCHS = 10000
 N_NEURONS = 16
 
-def f(x):
-    return x**2
-
 FUNCTION = np.sin
 LOW = -5 * np.pi
 HIGH = 10 * np.pi
@@ -25,13 +22,8 @@ def main():
     validation_data = Dataset(FUNCTION, lo=LOW, hi=HIGH, n=VALIDATION_DATASET_SIZE, with_noise=False, seed=333)
 
     net = Network([1, N_NEURONS, 1])
-
-    # print('weights: ', net.weights)
-    # print('biases: ', net.biases)
     
     train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.00005, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
-    # print('weights: ', net.weights)
-    # print('biases: ', net.biases)
 
     y_pred = net.predict(np.transpose(validation_data.X))
     y_pred = np.squeeze(y_pred)

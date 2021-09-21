@@ -36,7 +36,6 @@ class Network(object):
 
     return X[idx], y[idx]
 
-
   def SDG(self, train_X, train_y, epochs, mini_batch_size, lr=0.001, test_X = None, test_y = None, cross_validation=None):
     train_X = np.array(train_X)
     train_y = np.array(train_y)
@@ -77,12 +76,6 @@ class Network(object):
     new_b = delta_new_b
     new_w = delta_new_w
 
-
-    # for x, y in zip(mini_batch_X, mini_batch_y):
-    #   delta_new_b, delta_new_w = self.backprop(x, y)
-    #   new_b = [nb+dnb for nb, dnb in zip(new_b, delta_new_b)]
-    #   new_w = [nw+dnw for nw, dnw in zip(new_w, delta_new_w)]
-
     self.weights = np.subtract(self.weights, np.multiply(lr, new_w))
     self.biases = np.subtract(self.biases, np.multiply(lr, new_b))
   
@@ -113,9 +106,6 @@ class Network(object):
       local_grad_b[-l] = delta
       local_grad_w[-l] = np.dot(delta, np.transpose(activations[-l-1]))
     
-    # print('lb: ', local_grad_b)
-    # print('lw: ', local_grad_w)
-    
     return (local_grad_b, local_grad_w)
 
 def MSE(y, y_hat):
@@ -124,7 +114,6 @@ def MSE(y, y_hat):
 def MSE_derivative(y, y_hat):
     return np.multiply(-2, np.subtract(y, y_hat))
     
-
 def tanh(z):
   return np.tanh(z)
 
