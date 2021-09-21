@@ -6,10 +6,10 @@ from src.plot import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-TRAIN_DATASET_SIZE = 100
-TEST_DATASET_SIZE = 100
-VALIDATION_DATASET_SIZE = 100
-N_EPOCHS = 4000
+TRAIN_DATASET_SIZE = 1000
+TEST_DATASET_SIZE = 1000
+VALIDATION_DATASET_SIZE = 1000
+N_EPOCHS = 10000
 N_NEURONS = 16
 
 def f(x):
@@ -29,7 +29,7 @@ def main():
     # print('weights: ', net.weights)
     # print('biases: ', net.biases)
     
-    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.0009, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
+    train_loss, test_loss = net.train(train_data.X, train_data.y, N_EPOCHS, 5, lr=0.00005, test_X=test_data.X, test_y=test_data.y, cross_validation=True)
     # print('weights: ', net.weights)
     # print('biases: ', net.biases)
 
