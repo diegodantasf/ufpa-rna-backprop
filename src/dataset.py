@@ -2,7 +2,7 @@ import numpy as np
 
 class Dataset(object):
     def __init__(self, func, lo, hi, n=1000, with_noise=True, seed=1337):
-        self.rng = np.random.default_rng(1)
+        self.rng = np.random.default_rng(seed)
         self.X = self.rng.uniform(lo, hi, n)
         self.X = np.reshape(self.X, [self.X.shape[0], 1])
         self.y = func(self.X)
