@@ -59,12 +59,12 @@ class Network(object):
             train_loss = self.evaluate(train_X, train_y)
             train_losses.append(train_loss)
 
-            print('[TREINO] Erro na epoca {}/{}: {}'.format(e, epochs, train_loss))
+            print('[TREINO] Erro na epoca {}/{}: {}'.format(e+1, epochs, train_loss))
 
             if cross_validation:
                 test_loss = self.evaluate(test_X, test_y)
                 test_losses.append(test_loss)
-                print('[VALIDACAO-CRUZADA] Erro na epoca {}/{}: {}'.format(e, epochs, test_loss))
+                print('[VALIDACAO-CRUZADA] Erro na epoca {}/{}: {}'.format(e+1, epochs, test_loss))
         
         return (np.array(train_losses), np.array(test_losses))
 
