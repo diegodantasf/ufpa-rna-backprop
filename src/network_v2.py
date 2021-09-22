@@ -58,6 +58,7 @@ class Network(object):
             if cross_validation:
                 test_loss = self.evaluate(test_X, test_y)
                 test_losses.append(test_loss)
+                
                 print('[VALIDACAO-CRUZADA] Erro na epoca {}/{}: {}'.format(e + 1, epochs, test_loss))
         
         return (np.array(train_losses), np.array(test_losses))
