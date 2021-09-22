@@ -24,8 +24,7 @@ class Network(object):
     
     def evaluate(self, X, y):
         results = self._forward(X)
-        ans = mean_squared_error(y, results)
-        return ans
+        return mean_squared_error(y, results)
     
     def predict(self, X):
         return self._forward(X)
@@ -42,9 +41,6 @@ class Network(object):
 
         train_losses = []
         test_losses = []
-
-        print(train_X.shape)
-        print(train_y.shape)
 
         for e in range(epochs):
         
@@ -97,7 +93,6 @@ class Network(object):
             activations.append(activation)
         
         # backward
-        # delta = mean_squared_error_prime(y, activations[-1]) * tanh_prime(zs[-1])
         delta = mean_squared_error_prime(y, activations[-1])
         local_grad_b[-1] = delta
         local_grad_w[-1] = np.multiply(delta, activations[-2])
