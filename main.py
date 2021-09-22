@@ -9,14 +9,15 @@ TRAIN_DATASET_SIZE = 1000
 TEST_DATASET_SIZE = 1000
 VALIDATION_DATASET_SIZE = 1000
 N_EPOCHS = 5000
-N_NEURONS = 256
+N_NEURONS = 16
+LEARNING_RATE = 0.05
 
 def squared(x):
     return x**2
 
 FUNCTION = np.sin
-LOW = -4 * np.pi
-HIGH = 4 * np.pi
+LOW = -3 * np.pi
+HIGH = 3 * np.pi
 
 def main():
     train_data = Dataset(FUNCTION, lo=LOW, hi=HIGH, n=TRAIN_DATASET_SIZE, with_noise=False, seed=1337)
@@ -29,7 +30,7 @@ def main():
         train_data.X, 
         train_data.y, 
         N_EPOCHS, 
-        lr=0.0005, 
+        lr=LEARNING_RATE, 
         test_X=test_data.X, 
         test_y=test_data.y, 
         cross_validation=True
