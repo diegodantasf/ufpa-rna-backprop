@@ -9,7 +9,7 @@ O algoritmo BackProgation, também chamado apenas de BackProp, foi demonstrado p
 
 Neste trabalho, apresentamos uma implementação em Python de uma versão simplificada do algoritmo. Foi utilizado um conjunto de dados sintético gerado pelos próprios autores para treino e validação de um Perceptron Multi-Camadas (MLP), usando o algoritmo backprop com o algoritmo do Gradiente Descendente para a atualização do pesos da MLP baseada no erro, o qual é calculado usando a função de Mean Squared Error (erro quadrático médio).
 
-O código fonte do algoritmo pode ser encontrado [neste repositório](https://github.com/diegodantasf/ufpa-rna-backprop)
+O código fonte do algoritmo pode ser encontrado [neste repositório](https://github.com/diegodantasf/ufpa-rna-backprop).
 
 Os dados usados para treino e validação foram gerados a partir de funções elementares, mais especificamente função f(x) = sen(x). Usamos 1000 amostas para o treino e validação. A MLP foi treinada por 5000 épocas. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
 
