@@ -3,7 +3,7 @@ Prof. Dra. Adriana Rosa Garcez Castro
 
 Por [Diego Dantas](https://github.com/diegodantasf), [Gustavo Fontenele](https://github.com/gustavofont) e [Jeremias Abreu](https://github.com/j-abreu)
 
-#### Implementação simples do Algoritmo BackPropagation com Gradiente Descendente
+## Implementação simples do Algoritmo BackPropagation com Gradiente Descendente
 
 O algoritmo BackProgation, também chamado apenas de BackProp, foi demonstrado pela primeira vez por [(Rumelhart et al., 1986a)](https://www.nature.com/articles/323533a0) e é, hoje em dia, amplamente utilizado para treinar redes neurais _feedforward_, porém, existem diversas versões deste algoritmo para treinar outros tipos de redes neurais artificiais.
 
@@ -22,3 +22,12 @@ Os dados usados para treino e validação foram gerados a partir de funções el
   <img width="550" src="./plots/predictions_test-loss-0.04079817681500775.png">
   <div align="center">Predição vs Valor real</div>
 </p>
+
+
+A aplicação escolhida para a rede MLP implementada tem como objetivo validar a implementação e demonstrar a capacidade de aproximação de uma MLP com apenas uma camada oculta. Pelos os graficos, foi observado que a implementação esta otimizando os pesos da rede e que a MLP conseguiu se aproximar da função seno. 
+
+## Referências 
+
+[(Rumelhart et al., 1986a)](https://www.nature.com/articles/323533a0)
+[Neural Networks, Multilayer Perceptron and the Backpropagation Algorithm](https://medium.com/@tiago.tmleite/neural-networks-multilayer-perceptron-and-the-backpropagation-algorithm-a5cd5b904fde)
+[Deep Learning Book](https://www.deeplearningbook.com.br/algoritmo-backpropagation-parte1-grafos-computacionais-e-chain-rule/)
