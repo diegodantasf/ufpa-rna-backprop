@@ -29,5 +29,7 @@ A aplicação escolhida para a rede MLP implementada tem como objetivo validar a
 ## Referências 
 
 [(Rumelhart et al., 1986a)](https://www.nature.com/articles/323533a0)
+
 [Neural Networks, Multilayer Perceptron and the Backpropagation Algorithm](https://medium.com/@tiago.tmleite/neural-networks-multilayer-perceptron-and-the-backpropagation-algorithm-a5cd5b904fde)
+
 [Deep Learning Book](https://www.deeplearningbook.com.br/algoritmo-backpropagation-parte1-grafos-computacionais-e-chain-rule/)
