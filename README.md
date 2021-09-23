@@ -11,7 +11,7 @@ Neste trabalho, apresentamos uma implementação em Python de uma versão simpli
 
 O código fonte do algoritmo pode ser encontrado [neste repositório](https://github.com/diegodantasf/ufpa-rna-backprop).
 
-Os dados usados para treino e validação foram gerados a partir de funções elementares, mais especificamente função f(x) = sen(x). Usamos 1000 amostas para o treino e validação. A MLP foi treinada por 5000 épocas. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
+Os dados usados para treino e validação foram gerados a partir de funções elementares, mais especificamente função f(x) = sen(x). Usamos 1000 amostas para o treino e validação. A MLP com 16 neurônios na única camada oculta foi treinada por 5000 épocas usando uma taxa de aprendizagem de 0.05. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
 
 <p align="center">
   <img width="550" src="./plots/losses_test-loss-0.04079817681500775.png">
