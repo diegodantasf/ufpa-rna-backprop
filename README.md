@@ -7,17 +7,18 @@ Por [Diego Dantas](https://github.com/diegodantasf), [Gustavo Fontenele](https:/
 
 O algoritmo BackProgation, também chamado apenas de BackProp, foi demonstrado pela primeira vez por [(Rumelhart et al., 1986a)](https://www.nature.com/articles/323533a0) e é, hoje em dia, amplamente utilizado para treinar redes neurais _feedforward_, porém, existem diversas versões deste algoritmo para treinar outros tipos de redes neurais artificiais.
 
-Neste trabalho aprensentamos uma implementação em Python de uma versão simplificada do algoritmo enquanto que usamos um conjunto de dados sintético gerado pelos próprios autores deste trabalho para treino e validação de um Perceptron Multi-Camadas usando o algoritmo implementado juntamente com o algoritmo do Gradiente Descendente para a atualização do pesos da MLP baseada no erro, o qual é calculado usando a função de Mean Squared Error (erro quadrático médio).
-
-[TODO: add fórmulas simples do gradiente descendente e da MSE]
+Neste trabalho, apresentamos uma implementação em Python de uma versão simplificada do algoritmo. Foi utilizado um conjunto de dados sintético gerado pelos próprios autores para treino e validação de um Perceptron Multi-Camadas (MLP), usando o algoritmo backprop com o algoritmo do Gradiente Descendente para a atualização do pesos da MLP baseada no erro, o qual é calculado usando a função de Mean Squared Error (erro quadrático médio).
 
 O código fonte do algoritmo pode ser encontrado [neste repositório](https://github.com/diegodantasf/ufpa-rna-backprop)
 
-Os dados que usamos para treino e validação foram gerados a partir da função f(x) = x^2 + W, onde W é um ruído gaussiano.
-Usamos [TODO: add numero de amostras] amostas para o treino e [TODO: add numero de amostras] para validação.
-A MLP foi treinada por [TODO: add número de épocas] épocas. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
+Os dados usados para treino e validação foram gerados a partir de funções elementares, mais especificamente função f(x) = sen(x). Usamos 1000 amostas para o treino e validação. A MLP foi treinada por 5000 épocas. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
 
 <p align="center">
-  <img width="350" src="">
-  <h1 align="center">LEGENDA</h1>
+  <img width="550" src="./plots/losses_test-loss-0.04079817681500775.png">
+  <div align="center">Erro ao longo do treinamento com 5000 épocas da MLP</div>
+</p>
+
+<p align="center">
+  <img width="550" src="./plots/predictions_test-loss-0.04079817681500775.png">
+  <div align="center">Predição vs Valor real</div>
 </p>
