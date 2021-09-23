@@ -1,10 +1,7 @@
 # TE05253 - Redes Neurais Artificiais
 Prof. Dra. Adriana Rosa Garcez Castro
 
-Equipe:
-- [Diego Dantas](https://github.com/diegodantasf)
-- [Gustavo Fontenele](https://github.com/gustavofont)
-- [Jeremias Lima](https://github.com/j-abreu)
+Por [Diego Dantas](https://github.com/diegodantasf), [Gustavo Fontenele](https://github.com/gustavofont) e [Jeremias Lima](https://github.com/j-abreu)
 
 #### Implementação simples do Algoritmo BackPropagation com Gradiente Descendente
 
@@ -14,8 +11,13 @@ Neste trabalho aprensentamos uma implementação em Python de uma versão simpli
 
 [TODO: add fórmulas simples do gradiente descendente e da MSE]
 
-O código fonte do algoritmo pode ser encontrado em [link](https://github.com/diegodantasf/ufpa-rna-backprop)
+O código fonte do algoritmo pode ser encontrado [neste repositório](https://github.com/diegodantasf/ufpa-rna-backprop)
 
 Os dados que usamos para treino e validação foram gerados a partir da função f(x) = x^2 + W, onde W é um ruído gaussiano.
 Usamos [TODO: add numero de amostras] amostas para o treino e [TODO: add numero de amostras] para validação.
 A MLP foi treinada por [TODO: add número de épocas] épocas. Logo abaixo mostramos os graficos de erro ao longo das épocas e de validação mostrando o resultado esperado e o resultado da MLP.
+
+<p align="center">
+  <img width="350" src="">
+  <h1 align="center">LEGENDA</h1>
+</p>
